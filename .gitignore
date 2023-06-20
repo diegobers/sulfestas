@@ -22,7 +22,6 @@ var/
 wheels/
 # Django stuff:
 __pycache__/
-migrations/
 db.sqlite3
 
 # Environments
