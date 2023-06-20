@@ -3,7 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = '***'
+SECRET_KEY = os.environ['SECRET_KEY_ENV_RAILWAY']
 
 DEBUG = True
 
@@ -15,8 +15,9 @@ LOGIN_REDIRECT_URL = 'index'
 
 LOGIN_URL = 'login'
 
-#CSRF_TRUSTED_ORIGINS = ['***']
-#CORS_ORIGINS_WHITELIST = ['****']
+CSRF_TRUSTED_ORIGINS = ['https://sulfestas-production.up.railway.app']
+
+CORS_ORIGINS_WHITELIST = ['https://sulfestas-production.up.railway.app']
 
 # Application definition
 INSTALLED_APPS = [
@@ -66,11 +67,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': os.environ["PGDATABASE"],
+       'USER': os.environ["PGUSER"],
+       'PASSWORD': os.environ["PGPASSWORD"],
+       'HOST': os.environ["PGHOST"],
+       'PORT': os.environ["PGPORT"],
+   }
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
