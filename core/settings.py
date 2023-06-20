@@ -15,6 +15,8 @@ LOGIN_REDIRECT_URL = 'index'
 
 LOGIN_URL = 'login'
 
+CSRF_ALLOWED_ORIGINS = ['https://sulfestas-production.up.railway.app']
+
 CSRF_TRUSTED_ORIGINS = ['https://sulfestas-production.up.railway.app']
 
 CORS_ORIGINS_WHITELIST = ['https://sulfestas-production.up.railway.app']
@@ -31,7 +33,6 @@ INSTALLED_APPS = [
     'accounts',
     'storages',
     'pages',
-    'products',
 ]
 
 MIDDLEWARE = [
@@ -67,14 +68,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': os.environ["PGDATABASE"],
-       'USER': os.environ["PGUSER"],
-       'PASSWORD': os.environ["PGPASSWORD"],
-       'HOST': os.environ["PGHOST"],
-       'PORT': os.environ["PGPORT"],
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ["PGDATABASE"],
+        'USER': os.environ["PGUSER"],
+        'PASSWORD': os.environ["PGPASSWORD"],
+        'HOST': os.environ["PGHOST"],
+        'PORT': os.environ["PGPORT"],
+    }
 }
 
 # Password validation
