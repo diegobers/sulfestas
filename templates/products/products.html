@@ -19,11 +19,11 @@
 		              </tr> 
 		            </thead>  
           			<tbody>
-      						{% for p in products %}
+      						{% for product in products %}
             				<tr>
 			                <td>
-			                	<a href="#">{{p.title}}</a>
-			                	<a href="#">{{p.description}}</a>
+			                	<a href="{% url 'product' product.id %}">{{product.title}}</a>
+			                	<a href="#">{{product.description}}</a>
 			                </td> 
 						        </tr>
       						{% endfor %}

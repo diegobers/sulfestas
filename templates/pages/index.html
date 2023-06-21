@@ -1,9 +1,31 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<div class='container'> 
-  <div class='row'>  
-    <h1>Index pages app!</h1>
-  </div> 
-</div>
+  <section class="py-5">
+    <div class='container'> 
+      <div class='row'>  
+        <h1>Index pages app!</h1>
+      </div> 
+    </div>
+  </section> 
+
+  <section id="" class="text-white py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <form action="{% url 'search' %}">
+            <!-- Form Row 1 -->
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Pesquisar:</label>
+                <input type="text" name="keywords" class="form-control" placeholder="Descrição..." value="{{ values.keywords }}">
+              </div> 
+
+            </div>
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Pesquisar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
