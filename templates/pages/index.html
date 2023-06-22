@@ -14,17 +14,31 @@
     <hr>
     </div>
   </section>
-
   <!-- Products -->
   <section id="products" class="py-1">
-    <div class="container">
-      <h3 class="text-center mb-3">Ultimas Ofertas</h3>
+    <div class="container mb-3">
+      <h3 class="text-center mb-3">Últimas Ofertas</h3>
       <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4">
-        </div>
+        {% if products %}
+          {% for product in products %}
+            <div class='col-sm-4 col-md-4 col-lg-4 col-xl-4 my-2'> 
+              <div class="card w-100 mx-auto shadow" href="#" style="width: 8rem; height: 14rem;">
+                <img src="{{product.photo_main.url}}" style="height: 10rem;" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{product.description}}</h5>
+                  <p class="card-text">
+                    <a href="{% url 'product' product.id %}" class="stretched-link"></a>
+                  </p>
+                </div>
+              </div>  
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>Ofertas Indisponiveis!!!</p>
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>
-
-
 {% endblock %}
